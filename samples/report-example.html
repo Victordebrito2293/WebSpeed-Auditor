@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>WebSpeed Auditor — https://example.com/</title>
+<style>
+:root{--bg:#0f141a;--panel:#171d26;--fg:#e6edf3;--muted:#8b98a5;--line:#2a3441;
+--pass:#2ea043;--warn:#d29922;--fail:#f85149;--info:#58a6ff;--accent:#58a6ff;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+h1{margin:0 0 6px;font-size:26px}
+h2{font-size:19px;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:18px 0 8px;color:var(--muted)}
+.meta{color:var(--muted);font-size:13px}
+.meta b{color:var(--fg);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card .num{font-size:30px;font-weight:700}
+.card .lbl{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.scorebar{height:8px;background:#222b36;border-radius:6px;overflow:hidden;margin-top:8px}
+.scorebar>i{display:block;height:100%;background:var(--pass)}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700;letter-spacing:.03em}
+.b-pass{background:rgba(46,160,67,.18);color:var(--pass);border:1px solid rgba(46,160,67,.4)}
+.b-warn{background:rgba(210,153,34,.15);color:var(--warn);border:1px solid rgba(210,153,34,.4)}
+.b-fail{background:rgba(248,81,73,.15);color:var(--fail);border:1px solid rgba(248,81,73,.4)}
+.b-nt{background:rgba(139,152,165,.12);color:var(--muted);border:1px solid rgba(139,152,165,.35)}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:top}
+th{color:var(--muted);font-weight:600;background:#1b2330;font-size:12px;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+.finding{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;padding:14px 16px;margin:12px 0}
+.finding.critical,.finding.high{border-left-color:var(--fail)}
+.finding .t{font-weight:700;margin-bottom:6px}
+.finding dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:4px 10px;font-size:13.5px}
+.finding dt{color:var(--muted)}
+.finding dd{margin:0}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:7px 12px;border:1px solid var(--line);border-radius:8px;margin-bottom:7px;background:var(--panel);font-size:13.5px}
+.note{background:#121821;border:1px dashed var(--line);border-radius:8px;padding:12px 14px;color:var(--muted);font-size:13.5px}
+code{background:#222b36;padding:1px 6px;border-radius:5px;font-size:12.5px}
+footer{margin-top:44px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px}
+a{color:var(--accent)}
+.cb{color:var(--muted);font-size:12.5px;word-break:break-all}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>WebSpeed Auditor — relatório de auditoria</h1>
+<div class="meta">
+URL: <b>https://example.com/</b><br>
+URL final: <b>https://example.com/</b><br>
+Gerado: <b>2026-10-07T19:43:28Z</b> · Duração: <b>198 ms</b><br>
+Escopo: <b>1</b> página(s) · <b>2</b> requisição(ões)<br>
+Ferramenta: <b>WebSpeed Auditor 0.1.0</b> (execução local; nenhum dado é enviado a terceiros)
+</div>
+</header>
+<section><h2>Pontuação geral</h2>
+<div class="cards">
+<div class="card"><div class="num" style="color:var(--pass)">97</div><div class="lbl">Score geral /100</div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">Performance</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">Network</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">85</div><div class="lbl">Caching</div><div class="scorebar"><i style="width:85%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">Compression</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">Images</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">97</div><div class="lbl">JavaScript</div><div class="scorebar"><i style="width:97%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">CSS</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">100</div><div class="lbl">HTML</div><div class="scorebar"><i style="width:100%;background:var(--pass)"></i></div></div>
+<div class="card"><div class="num" style="color:var(--pass);font-size:22px">97</div><div class="lbl">Best Practices</div><div class="scorebar"><i style="width:97%;background:var(--pass)"></i></div></div>
+</div>
+<p class="cb">Pesos: Performance 20, Network 15, Images 15, Caching 10, Compression 10, JavaScript 10, HTML 10, CSS 5, Best Practices 5. Deduções por achado: Critical 30, High 15, Medium 8, Low 3, Info 0.</p>
+<h2>O que foi testado (24)</h2>
+<table>
+<thead><tr><th>Categoria</th><th>Teste</th><th>Status</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td>Performance</td><td>Documento principal</td><td><span class="badge b-pass">PASS</span></td><td>HTTP 200 em https://example.com/</td></tr>
+<tr><td>CSS</td><td>Folhas de estilo externas</td><td><span class="badge b-pass">PASS</span></td><td>0 folha(s) externa(s)</td></tr>
+<tr><td>CSS</td><td>Volume total de CSS</td><td><span class="badge b-pass">PASS</span></td><td>0 B externo + 168 B inline</td></tr>
+<tr><td>CSS</td><td>CSS duplicado</td><td><span class="badge b-pass">PASS</span></td><td>nenhuma folha referenciada mais de uma vez</td></tr>
+<tr><td>JavaScript</td><td>Scripts bloqueantes</td><td><span class="badge b-warn">WARNING</span></td><td>1 bloqueante(s), 0 defer, 0 async, 0 module, 0 inline</td></tr>
+<tr><td>JavaScript</td><td>Volume total de JavaScript</td><td><span class="badge b-pass">PASS</span></td><td>1.9 KiB externo + 0 B inline</td></tr>
+<tr><td>Images</td><td>Imagens na página</td><td><span class="badge b-nt">NOT_TESTED</span></td><td>nenhuma imagem referenciada no HTML</td></tr>
+<tr><td>Best Practices</td><td>Fontes web</td><td><span class="badge b-nt">NOT_TESTED</span></td><td>nenhuma fonte referenciada no HTML (fontes embutidas em CSS não são detectadas)</td></tr>
+<tr><td>Performance</td><td>Peso total da página</td><td><span class="badge b-pass">PASS</span></td><td>1.7 KiB (limiar: 3.0 MiB)</td></tr>
+<tr><td>Best Practices</td><td>Cookies na resposta</td><td><span class="badge b-pass">PASS</span></td><td>0 cabeçalho(s) Set-Cookie (valores não coletados)</td></tr>
+<tr><td>Best Practices</td><td>Strict-Transport-Security</td><td><span class="badge b-warn">WARNING</span></td><td>ausente em resposta HTTPS</td></tr>
+<tr><td>Best Practices</td><td>X-Content-Type-Options</td><td><span class="badge b-warn">WARNING</span></td><td>ausente</td></tr>
+<tr><td>Compression</td><td>Vary em resposta comprimida</td><td><span class="badge b-warn">WARNING</span></td><td>Content-Encoding presente sem header Vary — proxies podem servir a variante errada</td></tr>
+<tr><td>Caching</td><td>Política de cache de recursos estáticos</td><td><span class="badge b-warn">WARNING</span></td><td>1 de 1 recurso(s) estático(s) sem Cache-Control</td></tr>
+<tr><td>Compression</td><td>Compressão de resposta (gzip/brotli)</td><td><span class="badge b-pass">PASS</span></td><td>1 de 1 recurso(s) comprimível(is) comprimido(s); encodings usados: br</td></tr>
+<tr><td>Performance</td><td>Tempo até a primeira resposta (TTFB)</td><td><span class="badge b-pass">PASS</span></td><td>69 ms (limiar: 600 ms)</td></tr>
+<tr><td>Network</td><td>Versão do protocolo HTTP</td><td><span class="badge b-pass">PASS</span></td><td>negociado HTTP/2</td></tr>
+<tr><td>Network</td><td>Uso de HTTPS</td><td><span class="badge b-pass">PASS</span></td><td>URL inicial já é HTTPS</td></tr>
+<tr><td>Network</td><td>Resolução DNS</td><td><span class="badge b-pass">PASS</span></td><td>4 endereço(s): 2 IPv4, 2 IPv6 (23 ms)</td></tr>
+<tr><td>Network</td><td>IPv6 disponível</td><td><span class="badge b-pass">PASS</span></td><td>2 endereço(s) IPv6</td></tr>
+<tr><td>Network</td><td>Cadeia de redirects</td><td><span class="badge b-pass">PASS</span></td><td>0 salto(s)</td></tr>
+<tr><td>Network</td><td>TLS / certificado</td><td><span class="badge b-pass">PASS</span></td><td>certificado válido e handshake concluído</td></tr>
+<tr><td>HTML</td><td>Tamanho do HTML</td><td><span class="badge b-pass">PASS</span></td><td>577 B</td></tr>
+<tr><td>HTML</td><td>Origens externas</td><td><span class="badge b-pass">PASS</span></td><td>0 origem(ns) distinta(s)</td></tr>
+</tbody></table>
+<h2>Problemas encontrados (3)</h2>
+<div class="finding high"><div class="t"><span class="badge b-fail">HIGH</span> Recursos estáticos sem política de cache <span class="cb">(Caching · id <code>cache_missing</code>)</span></div><dl><dt>Problema</dt><dd>Arquivos estáticos são servidos sem Cache-Control, forçando novos downloads em visitas futuras.</dd><dt>Evidência</dt><dd>Cache-Control ausente em 1/1 recurso(s): https://example.com/s.js</dd><dt>Impacto</dt><dd>Recursos podem ser baixados novamente em visitas futuras. Impacto não quantificado neste ambiente.</dd><dt>Correção</dt><dd>Configurar política de cache apropriada para assets versionados (ex.: public, max-age=31536000, immutable).</dd></dl></div>
+<div class="finding "><div class="t"><span class="badge b-nt">LOW</span> Scripts bloqueantes no carregamento <span class="cb">(JavaScript · id <code>js_blocking</code>)</span></div><dl><dt>Problema</dt><dd>Scripts sem defer/async/module bloqueiam o parsing do HTML até serem baixados e executados.</dd><dt>Evidência</dt><dd>1 script(s) bloqueante(s) detectado(s)</dd><dt>Impacto</dt><dd>Impacto não quantificado neste ambiente.</dd><dt>Correção</dt><dd>Adicionar defer (ou type=module, que já é deferido por padrão) quando o script não precisa executar imediatamente; async apenas para scripts independentes.</dd></dl></div>
+<div class="finding "><div class="t"><span class="badge b-nt">LOW</span> HSTS ausente <span class="cb">(Best Practices · id <code>hsts_missing</code>)</span></div><dl><dt>Problema</dt><dd>Sem Strict-Transport-Security, o primeiro acesso pode ocorrer por HTTP antes do redirect.</dd><dt>Evidência</dt><dd>Header Strict-Transport-Security não presente na resposta HTTPS</dd><dt>Impacto</dt><dd>Impacto não quantificado neste ambiente.</dd><dt>Correção</dt><dd>Adicionar Strict-Transport-Security: max-age=31536000; includeSubDomains (com cautela em ambientes de teste).</dd></dl></div>
+<h2>Já está otimizado (17)</h2>
+<ul class="plain">
+<li><span class="badge b-pass">PASS</span> <b>Documento principal</b> — HTTP 200 em https://example.com/</li>
+<li><span class="badge b-pass">PASS</span> <b>Folhas de estilo externas</b> — 0 folha(s) externa(s)</li>
+<li><span class="badge b-pass">PASS</span> <b>Volume total de CSS</b> — 0 B externo + 168 B inline</li>
+<li><span class="badge b-pass">PASS</span> <b>CSS duplicado</b> — nenhuma folha referenciada mais de uma vez</li>
+<li><span class="badge b-pass">PASS</span> <b>Volume total de JavaScript</b> — 1.9 KiB externo + 0 B inline</li>
+<li><span class="badge b-pass">PASS</span> <b>Peso total da página</b> — 1.7 KiB (limiar: 3.0 MiB)</li>
+<li><span class="badge b-pass">PASS</span> <b>Cookies na resposta</b> — 0 cabeçalho(s) Set-Cookie (valores não coletados)</li>
+<li><span class="badge b-pass">PASS</span> <b>Compressão de resposta (gzip/brotli)</b> — 1 de 1 recurso(s) comprimível(is) comprimido(s); encodings usados: br</li>
+<li><span class="badge b-pass">PASS</span> <b>Tempo até a primeira resposta (TTFB)</b> — 69 ms (limiar: 600 ms)</li>
+<li><span class="badge b-pass">PASS</span> <b>Versão do protocolo HTTP</b> — negociado HTTP/2</li>
+<li><span class="badge b-pass">PASS</span> <b>Uso de HTTPS</b> — URL inicial já é HTTPS</li>
+<li><span class="badge b-pass">PASS</span> <b>Resolução DNS</b> — 4 endereço(s): 2 IPv4, 2 IPv6 (23 ms)</li>
+<li><span class="badge b-pass">PASS</span> <b>IPv6 disponível</b> — 2 endereço(s) IPv6</li>
+<li><span class="badge b-pass">PASS</span> <b>Cadeia de redirects</b> — 0 salto(s)</li>
+<li><span class="badge b-pass">PASS</span> <b>TLS / certificado</b> — certificado válido e handshake concluído</li>
+<li><span class="badge b-pass">PASS</span> <b>Tamanho do HTML</b> — 577 B</li>
+<li><span class="badge b-pass">PASS</span> <b>Origens externas</b> — 0 origem(ns) distinta(s)</li>
+</ul>
+<h2>Não testado neste ambiente (6)</h2>
+<ul class="plain">
+<li><b>Acessibilidade completa</b> — Somente aspectos de acessibilidade ligados a performance (dimensões de imagens, lazy loading) foram verificados.</li>
+<li><b>Ambiente de medição</b> — Tempos variam com rede, distância, CDN e carga do alvo; execute de vários locais para comparar.</li>
+<li><b>Execução de JavaScript</b> — O JS não é executado; páginas que renderizam conteúdo apenas via JS têm análise parcial.</li>
+<li><b>HTTP/3 (QUIC)</b> — Não sondado: depende de suporte da plataforma e evitaria dependências problemáticas.</li>
+<li><b>Métricas de navegador (Core Web Vitals)</b> — Não há navegador real neste modo: LCP/CLS/INP não foram medidos. A medição é HTTP estática.</li>
+<li><b>Registros DNS (CNAME)</b> — Não coletados: exigiria resolvedor DNS completo; apenas resolução e IPs foram medidos.</li>
+</ul>
+<h2>Detalhes técnicos</h2>
+<table>
+<tbody>
+<tr><th>DNS</th><td>PASS — 4 endereço(s): 2 IPv4, 2 IPv6 (23 ms)</td></tr>
+<tr><th>TLS</th><td>PASS — certificado válido e handshake concluído</td></tr>
+<tr><th>Redirects</th><td>PASS — sem redirects</td></tr>
+<tr><th>HTTP</th><td>200 HTTP/2 · Content-Type: text/html; charset=utf-8 · encoding: br</td></tr>
+<tr><th>Tempos</th><td>DNS 1 ms · conexão 14 ms · TLS 31 ms · TTFB 69 ms · download 0 ms · total 70 ms</td></tr>
+<tr><th>Transferência</th><td>334 B transferido · 577 B descodificado · corpo truncado: false</td></tr>
+<tr><th>Cache-Control</th><td>ausente</td></tr>
+<tr><th>Set-Cookie</th><td>0 (valores não coletados)</td></tr>
+<tr><th>Páginas</th><td>https://example.com/<br></td></tr>
+<tr><th>Recursos</th><td><span class="cb">https://example.com/s.js — PASS text/javascript; charset=utf-8</span><br></td></tr>
+</tbody></table>
+<footer>Gerado por <b>WebSpeed Auditor 0.1.0</b>. Este relatório é autocontido (sem scripts nem recursos externos) e contém apenas dados do site auditado. Nenhum dado local do operador está incluído.</footer>
+</div>
+</body>
+</html>
