@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: ${{ matrix.target }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            archive: tar.gz
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+            archive: tar.gz
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            archive: tar.gz
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            archive: tar.gz
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            archive: zip
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build
+        run: cargo build --release --locked --target ${{ matrix.target }}
+
+      - name: Empacotar (unix)
+        if: matrix.archive == 'tar.gz'
+        shell: bash
+        run: |
+          stage="webspeed-auditor-${GITHUB_REF_NAME}-${{ matrix.target }}"
+          mkdir -p "$stage"
+          cp "target/${{ matrix.target }}/release/webspeed-auditor" "$stage/"
+          cp README.md LICENSE "$stage/"
+          tar -czf "$stage.tar.gz" "$stage"
+
+      - name: Empacotar (windows)
+        if: matrix.archive == 'zip'
+        shell: bash
+        run: |
+          stage="webspeed-auditor-${GITHUB_REF_NAME}-${{ matrix.target }}"
+          mkdir -p "$stage"
+          cp "target/${{ matrix.target }}/release/webspeed-auditor.exe" "$stage/"
+          cp README.md LICENSE "$stage/"
+          7z a "$stage.zip" "$stage"
+
+      - name: SHA-256
+        shell: bash
+        run: |
+          if [ "${{ matrix.archive }}" = "tar.gz" ]; then
+            shasum -a 256 *.tar.gz > SHA256SUMS.txt
+          else
+            shasum -a 256 *.zip > SHA256SUMS.txt
+          fi
+          cat SHA256SUMS.txt
+
+      - name: Upload artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: webspeed-auditor-${{ matrix.target }}
+          path: |
+            *.tar.gz
+            *.zip
+            SHA256SUMS.txt
+
+  release:
+    name: Publicar release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Criar release com artefatos
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: artifacts/*

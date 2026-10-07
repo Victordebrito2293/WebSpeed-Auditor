@@ -1,0 +1,71 @@
+[package]
+name = "webspeed-auditor"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Auditoria local, offline e orientada a privacidade de performance e boas práticas de websites"
+license = "MIT"
+readme = "README.md"
+keywords = ["performance", "audit", "web", "privacy", "cli"]
+categories = ["command-line-utilities", "development-tools", "web-programming"]
+
+[dependencies]
+tokio-tungstenite = { version = "0.21", optional = true }
+futures-util = { version = "0.3", optional = true }
+
+# CLI: padrão da indústria, sem dependências transitivas pesadas.
+clap = { version = "4.5", features = ["derive"] }
+
+# HTTP: cliente maduro; apenas rustls (sem OpenSSL), streaming para limitar corpo.
+reqwest = { version = "0.12", default-features = false, features = [
+    "rustls-tls",
+    "http2",
+    "stream",
+] }
+
+# Runtime assíncrono.
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "net", "sync", "process"] }
+
+# Serialização do relatório (JSON) — somente em memória até o usuário exportar.
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Validação/normalização de URL.
+url = "2"
+
+# Parsing de HTML (html5ever por baixo).
+scraper = "0.20"
+
+# TLS: inspeção de certificado e protocolo sem OpenSSL.
+rustls = { version = "0.23", default-features = false, features = ["std", "ring", "tls12", "logging"] }
+webpki-roots = "0.26"
+
+# Parsing de certificados X.509.
+x509-parser = "0.16"
+
+# Descompressão explícita em memória (análise de compressão).
+flate2 = { version = "1", features = ["zlib-rs"] }
+brotli = "7"
+
+# Decodificação de charset para análise de HTML/CSS/JS.
+encoding_rs = "0.8"
+which = { version = "6", optional = true }
+tempfile = { version = "3", optional = true }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "warn"
+expect_used = "warn"
+
+
+[features]
+default = []
+browser = ["dep:tokio-tungstenite", "dep:futures-util", "dep:which", "dep:tempfile"]
